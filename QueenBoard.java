@@ -36,7 +36,9 @@ public class QueenBoard {
     for (int[] elem:board) {
       for (int num:elem) {
         if (num == -1) returner++;
+        elem[num] = 0;
       }
+
     }
     return returner;
   }
