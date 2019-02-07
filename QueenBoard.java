@@ -21,9 +21,12 @@ public class QueenBoard {
     String output = "";
     for (int[] elem:board) {
       for (int num:elem) {
-
+        if (num == -1) output += 'Q' + " ";
+        else output += '_' + " ";
       }
+      output += '\n';
     }
+    return output;
   }
   public boolean solve() {
 
