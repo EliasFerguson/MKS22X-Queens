@@ -28,10 +28,10 @@ public class QueenBoard {
     }
     return output;
   }
-  public boolean solve() {
+  /*public boolean solve() {
 
   }
   public int countSolutions() {
 
-  }
+  } */
 }
