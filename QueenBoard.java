@@ -28,10 +28,16 @@ public class QueenBoard {
     }
     return output;
   }
-  /*public boolean solve() {
+  public boolean solve() {
 
   }
   public int countSolutions() {
-
-  } */
+    int returner = 0;
+    for (int[] elem:board) {
+      for (int num:elem) {
+        if (num == -1) returner++;
+      }
+    }
+    return returner;
+  }
 }
