@@ -18,7 +18,12 @@ public class QueenBoard {
     return false;
   }
   public String toString() {
+    String output = "";
+    for (int[] elem:board) {
+      for (int num:elem) {
 
+      }
+    }
   }
   public boolean solve() {
 
