@@ -11,7 +11,11 @@ public class QueenBoard {
     return false;
   }
   private boolean removeQueen(int r, int c) {
-
+    if (board[r][c] == -1) {
+      board[r][c] = 0;
+      return true;
+    }
+    return false;
   }
   public String toString() {
 
