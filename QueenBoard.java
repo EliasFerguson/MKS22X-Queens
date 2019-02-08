@@ -8,7 +8,7 @@ public class QueenBoard {
   private boolean addQueen(int r, int c) {
     if (board[r][c] == 0) {
       board[r][c] = -1;
-      for (int i = 1; i < (n - c); i++) {
+      for (int i = 1; i < (n - r - 1); i++) {
         board[r][c + i] = board[r][c + i] + 1;
         board[r + i][c + i] = board[r + i][c + i] + 1;
       }
@@ -19,7 +19,7 @@ public class QueenBoard {
   private boolean removeQueen(int r, int c) {
     if (board[r][c] == -1) {
       board[r][c] = 0;
-      for (int i = 1; i < (n - c); i++) {
+      for (int i = 1; i < (n - r - 1); i++) {
         board[r][c + i] = board[r + i][c] - 1;
         board[r + i][c + i] = board[r + i][c + i] - 1;
       }
