@@ -42,16 +42,22 @@ public class QueenBoard {
     return solveH(0, 0);
   }
   public boolean solveH(int r, int c) {
-    if (r >= n) return true;
+    if (r >= n) {
+      System.out.println(board.toString());
+      return true;
+    }
     else if (addQueen(r, c)) {
+      System.out.println(board.toString());
       return solveH(r + 1, c);
     }
     else {
       removeQueen(r, c);
       if (r == n) {
+        System.out.println(board.toString());
         return solveH(r - 1, 0);
       }
       else {
+        System.out.println(board.toString());
         return solveH(r, c + 1);
       }
     }
@@ -62,5 +68,5 @@ public class QueenBoard {
   void clear() {
     board = new int[n][n];
   }
-  
+
 }
