@@ -42,7 +42,9 @@ public class QueenBoard {
     return solveH(0, 0);
   }
   public boolean solveH(int r, int c) {
-    
+    if (addQueen(r, c)) {
+      return solveH(row + 1, c);
+    }
   }
   public int countSolutions() {
     return 0;
