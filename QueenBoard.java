@@ -37,10 +37,16 @@ public class QueenBoard {
     return output;
   }
   public boolean solve() {
-
+    return false;
   }
   public int countSolutions() {
-    if (board.length == 3) return 2;
-    else if (board.length == 2) return 1;
+    return 0;
+  }
+  void clear() {
+    for (int[] elem:board) {
+      for(int num:elem) {
+        elem[num] = 0;
+      }
+    }
   }
 }
