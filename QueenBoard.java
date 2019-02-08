@@ -32,14 +32,6 @@ public class QueenBoard {
 
   }
   public int countSolutions() {
-    int returner = 0;
-    for (int[] elem:board) {
-      for (int num:elem) {
-        if (num == -1) returner++;
-        elem[num] = 0;
-      }
-
-    }
-    return returner;
+    
   }
 }
