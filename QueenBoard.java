@@ -43,8 +43,17 @@ public class QueenBoard {
   }
   public boolean solveH(int r, int c) {
     if (r >= n) return false;
-    if (addQueen(r, c)) {
+    else if (addQueen(r, c)) {
       return solveH(r + 1, c);
+    }
+    else {
+      removeQueen(r, c);
+      if (r == n) {
+        return solveH(r - 1, 0);
+      }
+      else {
+        return solveH(r, c + 1);
+      }
     }
   }
   public int countSolutions() {
