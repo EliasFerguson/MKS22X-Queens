@@ -62,4 +62,5 @@ public class QueenBoard {
   void clear() {
     board = new int[n][n];
   }
+  
 }
