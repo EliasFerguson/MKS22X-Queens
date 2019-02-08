@@ -1,7 +1,9 @@
 public class QueenBoard {
   private int[][] board;
+  private int n;
   public QueenBoard(int size) {
     board = new int[size][size];
+    n = size;
   }
   private boolean addQueen(int r, int c) {
     if (board[r][c] == 0) {
@@ -43,10 +45,6 @@ public class QueenBoard {
     return 0;
   }
   void clear() {
-    for (int[] elem:board) {
-      for(int num:elem) {
-        elem[num] = 0;
-      }
-    }
+    board = new int[n][n];
   }
 }
