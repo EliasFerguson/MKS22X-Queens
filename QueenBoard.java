@@ -9,28 +9,7 @@ public class QueenBoard {
     if(board.length == 0) return false;
     if (board[r][c] == 0) {
       board[r][c] = -1;
-      for (int i = 1; i + c < n; i++) {
-        if (r != 0 && c != 0) {
-          board[r - i][c + i] += 1;
-          //Going diagonally downwards.
-          board[r + i][c + i] += 1;
-          //Going diagonally upwards.
-          board[r][c + i] += 1;
-          //Going horizontally right.
-        }
-        else if (r == n - 1) {
-          board[r - i][c + i] += 1;
-          //Going diagonally downwards.
-          board[r][c + i] += 1;
-          //Going horizontally right.
-        }
-        else if (r == 0) {
-          board[r + i][c + i] += 1;
-          //Going diagonally upwards.
-          board[r][c + i] += 1;
-          //Going horizontally right.
-        }
-      }
+
       return true;
     }
     return false;
@@ -39,28 +18,7 @@ public class QueenBoard {
     if(board.length == 0) return false;
     if (board[r][c] == -1) {
       board[r][c] = 0;
-      for (int i = 1; i + c < n; i++) {
-        if (r != 0 && c != 0) {
-          board[r - i][c + i] -= 1;
-          //Going diagonally downwards.
-          board[r + i][c + i] -= 1;
-          //Going diagonally upwards.
-          board[r][c + i] -= 1;
-          //Going horizontally right.
-        }
-        else if (r == n - 1) {
-          board[r - i][c + i] -= 1;
-          //Going diagonally downwards.
-          board[r][c + i] -= 1;
-          //Going horizontally right.
-        }
-        else if (r == 0) {
-          board[r + i][c + i] -= 1;
-          //Going diagonally upwards.
-          board[r][c + i] -= 1;
-          //Going horizontally right.
-        }
-      }
+      
       return true;
     }
     return false;
@@ -95,8 +53,8 @@ public class QueenBoard {
     for (int r = 0; r < n; r++) {
       if (addQueen(r, c)) {
         if (solveH(c + 1)) return true;
+        removeQueen(r, c);
       }
-      removeQueen(r, c);
     }
     return false;
   }
