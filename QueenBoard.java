@@ -22,11 +22,16 @@ public class QueenBoard {
     return false;
   }
   private boolean removeQueen(int r, int c) {
+    if(board.length == 0) return false;
     if (board[r][c] == -1) {
       board[r][c] = 0;
-      for (int i = 1; i < (n - r); i++) {
-        board[r][c + i] = board[r + i][c] - 1;
-        board[r + i][c + i] = board[r + i][c + i] - 1;
+      for (int i = 1; i + c < n; i++) {
+        board[r - i][c + i] -= 1;
+        //Going diagonally downwards.
+        board[r + i][c + i] -= 1;
+        //Going diagonally upwards.
+        board[r][c + i] -= 1;
+        //Going horizontally right.
       }
       return true;
     }
