@@ -27,7 +27,13 @@ public class QueenBoard {
     for (int i = 1; c + i < board.length; i++) {
       if (r - i >= 0) {
         board[r][c + i] += num;
+        //Horizonatally right.
         board[r - i][c + i] += num;
+        //Diagonally DOWN.
+      }
+      if (r + i < board.length) {
+        board[r + i][c + i] += num;
+        //Diagonally UP.
       }
     }
   }
