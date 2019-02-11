@@ -9,7 +9,7 @@ public class QueenBoard {
     if(board.length == 0) return false;
     if (board[r][c] == 0) {
       board[r][c] = -1;
-
+      alterBoard(r, c, 1);
       return true;
     }
     return false;
@@ -18,7 +18,7 @@ public class QueenBoard {
     if(board.length == 0) return false;
     if (board[r][c] == -1) {
       board[r][c] = 0;
-
+      alterBoard(r, c, -1);
       return true;
     }
     return false;
