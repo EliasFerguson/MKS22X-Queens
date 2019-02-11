@@ -6,11 +6,16 @@ public class QueenBoard {
     n = size;
   }
   private boolean addQueen(int r, int c) {
+    if(board.length == 0) return false;
     if (board[r][c] == 0) {
       board[r][c] = -1;
-      for (int i = 1; i < (n - r); i++) {
-        board[r][c + i] = board[r][c + i] + 1;
-        board[r + i][c + i] = board[r + i][c + i] + 1;
+      for (int i = 1; i + c < n; i++) {
+        board[r - i][c + i] += 1;
+        //Going diagonally downwards.
+        board[r + i][c + i] += 1;
+        //Going diagonally upwards.
+        board[r][c + i] += 1;
+        //Going horizontally right.
       }
       return true;
     }
@@ -57,7 +62,7 @@ public class QueenBoard {
         return solveH(r - 1, 0);
       }
       else {
-        System.out.println(toString());
+        System.out.println(board.toString());
         return solveH(r, c + 1);
       }
     }
