@@ -18,10 +18,18 @@ public class QueenBoard {
     if(board.length == 0) return false;
     if (board[r][c] == -1) {
       board[r][c] = 0;
-      
+
       return true;
     }
     return false;
+  }
+  private void alterBoard(int r, int c, int num) {
+    for (int i = 1; c + i < board.length; i++) {
+      if (r - i >= 0) {
+        board[r][c + i] += num;
+        board[r - i][c + i] += num;
+      }
+    }
   }
   public String toString() {
     String output = "";
