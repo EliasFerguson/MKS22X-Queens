@@ -37,15 +37,29 @@ public class QueenBoard {
   }
   private boolean removeQueen(int r, int c) {
     if(board.length == 0) return false;
-    if (board[r][c] == -1) {
-      board[r][c] = 0;
+    if (board[r][c] == 0) {
+      board[r][c] = -1;
       for (int i = 1; i + c < n; i++) {
-        board[r - i][c + i] -= 1;
-        //Going diagonally downwards.
-        board[r + i][c + i] -= 1;
-        //Going diagonally upwards.
-        board[r][c + i] -= 1;
-        //Going horizontally right.
+        if (r != 0 && c != 0) {
+          board[r - i][c + i] -= 1;
+          //Going diagonally downwards.
+          board[r + i][c + i] -= 1;
+          //Going diagonally upwards.
+          board[r][c + i] -= 1;
+          //Going horizontally right.
+        }
+        else if (r == 0) {
+          board[r - i][c + i] -= 1;
+          //Going diagonally downwards.
+          board[r][c + i] -= 1;
+          //Going horizontally right.
+        }
+        else if (r == n - 1) {
+          board[r + i][c + i] -= 1;
+          //Going diagonally upwards.
+          board[r][c + i] -= 1;
+          //Going horizontally right.
+        }
       }
       return true;
     }
