@@ -74,8 +74,12 @@ public class QueenBoard {
     }
     return false;
   }
-  public int countSolutions() {
-    return 0;
+  /*public int countSolutions() {
+    return countSolutionsH(0);
+  } */
+  public int countSolutionsH(int count) {
+    if (!solve()) return 0;
+    
   }
   void clear() {
     board = new int[n][n];
