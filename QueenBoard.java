@@ -37,8 +37,8 @@ public class QueenBoard {
   }
   private boolean removeQueen(int r, int c) {
     if(board.length == 0) return false;
-    if (board[r][c] == 0) {
-      board[r][c] = -1;
+    if (board[r][c] == -1) {
+      board[r][c] = 0;
       for (int i = 1; i + c < n; i++) {
         if (r != 0 && c != 0) {
           board[r - i][c + i] -= 1;
@@ -76,16 +76,26 @@ public class QueenBoard {
     }
     return output;
   }
+  public String toStringDebug() {
+    String output = "";
+    for (int[] elem:board) {
+      for (int num:elem) {
+        output += num + " ";
+      }
+      output += '\n';
+    }
+    return output;
+  }
   public boolean solve() {
     return solveH(0);
   }
   public boolean solveH(int c) {
+    System.out.println(toStringDebug());
     if (c >= n) return true;
     for (int r = 0; r < n; r++) {
-      if (addQueen(c, r)) {
+      if (addQueen(r, c)) {
         if (solveH(c + 1)) return true;
       }
-      System.out.println(board.toString());
       removeQueen(r, c);
     }
     return false;
@@ -96,5 +106,4 @@ public class QueenBoard {
   void clear() {
     board = new int[n][n];
   }
-
 }
