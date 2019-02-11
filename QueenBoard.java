@@ -34,6 +34,8 @@ public class QueenBoard {
       if (r + i < board.length) {
         board[r + i][c + i] += num;
         //Diagonally UP.
+        board[r][c + i] += num;
+        //Horizonatally right.
       }
     }
   }
@@ -62,7 +64,7 @@ public class QueenBoard {
     return solveH(0);
   }
   public boolean solveH(int c) {
-    System.out.println(toStringDebug());
+    System.out.println(toString());
     if (c >= n) return true;
     for (int r = 0; r < n; r++) {
       if (addQueen(r, c)) {
