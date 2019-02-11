@@ -18,13 +18,13 @@ public class QueenBoard {
           board[r][c + i] += 1;
           //Going horizontally right.
         }
-        else if (r == n - 1) {
+        else if (r == 0) {
           board[r - i][c + i] += 1;
           //Going diagonally downwards.
           board[r][c + i] += 1;
           //Going horizontally right.
         }
-        else if (r == 0) {
+        else if (r == n - 1) {
           board[r + i][c + i] += 1;
           //Going diagonally upwards.
           board[r][c + i] += 1;
@@ -48,13 +48,13 @@ public class QueenBoard {
           board[r][c + i] -= 1;
           //Going horizontally right.
         }
-        else if (r == n - 1) {
+        else if (r == 0) {
           board[r - i][c + i] -= 1;
           //Going diagonally downwards.
           board[r][c + i] -= 1;
           //Going horizontally right.
         }
-        else if (r == 0) {
+        else if (r == n - 1) {
           board[r + i][c + i] -= 1;
           //Going diagonally upwards.
           board[r][c + i] -= 1;
