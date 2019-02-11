@@ -49,26 +49,13 @@ public class QueenBoard {
     return output;
   }
   public boolean solve() {
-    return solveH(0, 0);
+    return solveH(0);
   }
-  public boolean solveH(int r, int c) {
-    if (r >= n) {
-      System.out.println(toString());
-      return true;
-    }
-    else if (addQueen(r, c)) {
-      System.out.println(toString());
-      return solveH(r + 1, c);
-    }
-    else {
-      removeQueen(r, c);
-      if (r == n) {
-        System.out.println(toString());
-        return solveH(r - 1, 0);
-      }
-      else {
-        System.out.println(board.toString());
-        return solveH(r, c + 1);
+  public boolean solveH(int c) {
+    if (c >= n) return true;
+    for (int r = 0; r < n; r++) {
+      if (addQueen(c, r)) {
+        
       }
     }
   }
