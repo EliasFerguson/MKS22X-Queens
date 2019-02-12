@@ -61,10 +61,10 @@ public class QueenBoard {
     return output;
   }
   public boolean solve() {
+    exception();
     return solveH(0);
   }
   public boolean solveH(int c) {
-    System.out.println(toString());
     if (c >= n) return true;
     for (int r = 0; r < n; r++) {
       if (addQueen(r, c)) {
@@ -74,12 +74,22 @@ public class QueenBoard {
     }
     return false;
   }
-  /*public int countSolutions() {
+  public void exception() {
+    for(int[] elem:board) {
+      for (int num:elem) {
+        if (num != 0) throw new IllegalStateException("The board must be filled with zeros.");
+      }
+    }
+  }
+  public int countSolutions() {
+    exception();
     return countSolutionsH(0);
-  } */
+  }
   public int countSolutionsH(int count) {
     if (!solve()) return 0;
-    
+    else {
+      return countSolutionsH(count + 1);
+    }
   }
   void clear() {
     board = new int[n][n];
