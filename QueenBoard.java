@@ -85,10 +85,15 @@ public class QueenBoard {
     exception();
     return countSolutionsH(0);
   }
-  public int countSolutionsH(int count) {
+  public int countSolutionsH(int c) {
     if (!solve()) return 0;
     else {
-      return countSolutionsH(count + 1);
+      int count = 0;
+      for (int r = 0; r < board.length; r++) {
+        if (addQueen(r, c)) {
+          
+        }
+      }
     }
   }
   void clear() {
