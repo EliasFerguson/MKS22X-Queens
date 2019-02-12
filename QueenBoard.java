@@ -2,6 +2,7 @@ public class QueenBoard {
   private int[][] board;
   private int n;
   public QueenBoard(int size) {
+    if (size < 0) throw new IllegalArgumentException("Size can't be less than 0.");
     board = new int[size][size];
     n = size;
   }
@@ -88,19 +89,20 @@ public class QueenBoard {
     return ans;
   }
   public int countSolutionsH(int c) {
-    int count = 0;
-    if (!solve()) return 0;
+    if (board.length == 0) return 1;
+    else if (board[0].length == c) return 1;
     else {
+      int count = 0;
       for (int r = 0; r < board.length; r++) {
         if (addQueen(r, c)) {
           count += countSolutionsH(c + 1);
           removeQueen(r, c);
         }
       }
+      return count;
     }
-    return count;
   }
-  void clear() {
+  public void clear() {
     board = new int[n][n];
   }
 }
