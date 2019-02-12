@@ -63,7 +63,9 @@ public class QueenBoard {
   }
   public boolean solve() {
     exception();
-    return solveH(0);
+    boolean bool = solveH(0);
+    clear();
+    return bool;
   }
   public boolean solveH(int c) {
     if (c >= n) return true;
