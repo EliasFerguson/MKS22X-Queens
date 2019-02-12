@@ -83,7 +83,9 @@ public class QueenBoard {
   }
   public int countSolutions() {
     exception();
-    return countSolutionsH(0);
+    int ans = countSolutionsH(0);
+    clear();
+    return ans;
   }
   public int countSolutionsH(int c) {
     int count = 0;
