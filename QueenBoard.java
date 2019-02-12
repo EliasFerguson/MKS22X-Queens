@@ -86,15 +86,17 @@ public class QueenBoard {
     return countSolutionsH(0);
   }
   public int countSolutionsH(int c) {
+    int count = 0;
     if (!solve()) return 0;
     else {
-      int count = 0;
       for (int r = 0; r < board.length; r++) {
         if (addQueen(r, c)) {
-          
+          count += countSolutionsH(c + 1);
+          removeQueen(r, c);
         }
       }
     }
+    return count;
   }
   void clear() {
     board = new int[n][n];
