@@ -18,7 +18,7 @@ public class QueenBoard {
   private boolean removeQueen(int r, int c) {
     if(board.length == 0) return false;
     if (board[r][c] == -1) {
-      board[r][c] = 0;
+      board[r][c] = board[r][c] + 1;
       alterBoard(r, c, -1);
       return true;
     }
@@ -38,6 +38,8 @@ public class QueenBoard {
         board[r][c + i] += num;
         //Horizonatally right.
       }
+      board[r][c + i] += num;
+      //Horizonatally right.
     }
   }
   public String toString() {
@@ -70,6 +72,7 @@ public class QueenBoard {
   public boolean solveH(int c) {
     if (c >= n) return true;
     for (int r = 0; r < n; r++) {
+    //  System.out.println(this);
       if (addQueen(r, c)) {
         if (solveH(c + 1)) return true;
         removeQueen(r, c);
@@ -91,12 +94,14 @@ public class QueenBoard {
     return ans;
   }
   public int countSolutionsH(int c) {
-    int count = 0;
-    if (board.length == 0) return 1;
-    else if (board[0].length == c) return 1;
-    else if (c > board.length - 1) return 1;
+    if (n == 0) return 1;
+    else if (n == c) {
+      //System.out.println(this);
+      return 1;
+    }
     else {
-      for (int r = 0; r < board.length; r++) {
+      int count = 0;
+      for (int r = 0; r < n; r++) {
         if (addQueen(r, c)) {
           count += countSolutionsH(c + 1);
           removeQueen(r, c);

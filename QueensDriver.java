@@ -1,6 +1,6 @@
 public class QueensDriver {
   public static void main(String[] args) {
-    QueenBoard test = new QueenBoard(2);
+    QueenBoard test = new QueenBoard(7);
     //Should print true;
     System.out.println(test.solve());
     test.clear();
